@@ -1,0 +1,25 @@
+{
+  "name": "eslint-config",
+  "version": "0.0.1",
+  "description": "",
+  "packageManager": "pnpm@8.2.0",
+  "private": true,
+  "engines": {
+    "node": ">=10",
+    "pnpm": ">=7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "keywords": [],
+  "author": "l20122005@live.com",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@urzx/eslint-config-basic": "workspace:*"
+  }
+}
