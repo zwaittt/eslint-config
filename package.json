@@ -1,9 +1,9 @@
 {
   "name": "eslint-config",
   "version": "0.0.1",
-  "description": "",
+  "description": "Personal eslint config workspace.",
   "packageManager": "pnpm@8.2.0",
-  "private": true,
+  "private": false,
   "engines": {
     "node": ">=10",
     "pnpm": ">=7"
@@ -14,6 +14,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "preinstall": "npx only-allow pnpm",
+    "release": "changeset publish",
     "changeset": "changeset"
   },
   "keywords": [],
