@@ -57,9 +57,9 @@ jobs:
           # Connection URL protocol://user:password@server:port, protocol can be smtp or smtp+starttls, replaces server_address, server_port, secure, username and password
           # connection_url: # optional
           # SMTP server address
-          server_address: smtp.office365.com
+          server_address: smtp.gmail.com
           # SMTP server port
-          server_port: 587
+          server_port: 465
           # Whether this connection use TLS (default is true if server_port is 465)
           # secure: # optional
           # Authenticate as this user to SMTP server
