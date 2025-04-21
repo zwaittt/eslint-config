@@ -28,7 +28,7 @@ jobs:
         env:
           NPM_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: Publish
-        run: pnpm publish
+        run: pnpm publish --no-git-checks
       - name: Create Github Release
         run: |
           pnpm dlx changelogen gh release
