@@ -2,14 +2,18 @@
   "name": "@urzx/eslint-config",
   "type": "module",
   "version": "0.0.1",
+  "bin": "./bin/index.js",
   "scripts": {
     "lint": "eslint ./ --fix",
-    "dev": "tsup src/index.ts --format esm,cjs --dts-resolve --watch",
-    "build": "tsup src/index.ts --format esm,cjs --minify --dts-resolve",
-    "ts-check": "tsc --noEmit --project tsconfig.json",
+    "debug": "eslint --print-config >> debug.json",
+    "dev": "tsup --watch",
+    "build": "tsup --minify --dts",
+    "ts-check": "tsc --noEmit --project tsconfig.build.json",
     "prepublishOnly": "pnpm ts-check && pnpm build",
-    "prepare": "pnpm build"
+    "prepare": "pnpm build && [ ! -n \"$CI\" ] && husky install || exit 0",
+    "commit": "cz"
   },
+  "packageManager": "pnpm@9.12.3",
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
   "keywords": [
@@ -17,7 +21,8 @@
     "eslintconfig"
   ],
   "files": [
-    "dist"
+    "dist",
+    "bin"
   ],
   "typesVersions": {
     ">=3.2": {
@@ -36,28 +41,60 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "engines": {
-    "node": ">=16.20.0"
-  },
   "dependencies": {
-    "@eslint/js": "^8.53.0",
-    "@typescript-eslint/eslint-plugin": "^6.9.1",
-    "@typescript-eslint/parser": "^6.9.1",
-    "eslint-define-config": "^1.24.1",
+    "@eslint-react/eslint-plugin": "^1.26.2",
+    "@eslint/js": "^9.23.0",
+    "@next/eslint-plugin-next": "^15.2.4",
+    "@stylistic/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "chalk": "^5.3.0",
+    "eslint-plugin-import-x": "^4.9.4",
     "eslint-plugin-n": "^16.3.0",
-    "eslint-plugin-react": "^7.33.2",
-    "globals": "^13.23.0"
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "globals": "^13.23.0",
+    "lodash.template": "^4.5.0",
+    "ora": "^7.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.6.1",
+    "@commitlint/config-conventional": "^18.6.3",
+    "@commitlint/cz-commitlint": "^18.6.1",
     "@tsconfig/recommended": "^1.0.3",
-    "@types/eslint": "^8.44.6",
-    "@types/eslint__js": "^8.42.3",
+    "@types/inquirer": "^9.0.7",
     "@types/node": "^20.8.10",
-    "eslint": "8.26.0",
+    "@types/react": "^18.2.37",
+    "@types/yargs": "^17.0.31",
+    "commitizen": "^4.3.1",
+    "eslint": "^9.10.0",
+    "husky": "^8.0.3",
+    "inquirer": "^8.2.6",
+    "lint-staged": "^15.5.1",
+    "react": "^19.0.0",
     "tsup": "^7.2.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.3"
   },
   "peerDependencies": {
-    "eslint": "8.26.0 - 9"
+    "eslint": "^9.10.0"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "provenance": false
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
   }
 }

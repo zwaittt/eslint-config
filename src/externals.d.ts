@@ -1,14 +1,14 @@
-declare module 'eslint-plugin-react' {
-  const reactPlugin: any
-  export default reactPlugin
-}
-
-declare module  'eslint-plugin-react/configs/recommended' {
-  const reactRecommended: any
-  export default reactRecommended
-}
-
 declare module 'eslint-plugin-n' {
-  const nodePlugin: any
-  export default nodePlugin
+  const nodePlugin: any;
+  export default nodePlugin;
+}
+
+declare module 'eslint-plugin-unused-imports' {
+  const unusedImportsPlugin: any;
+  export default unusedImportsPlugin;
+}
+
+declare module '@next/eslint-plugin-next' {
+  const nextPlugin: any;
+  export default nextPlugin;
 }

@@ -1,8 +1,8 @@
-import abb from './dist/index.js'
+import urzx from './dist/index.js'
 
-/** @type {import("eslint").Linter.FlatConfig[]} */
+/** @type {import("eslint").Linter.Config[]} */
 export default [
-  ...abb({
+  ...urzx({
     ts: true,
     react: true,
   }),
