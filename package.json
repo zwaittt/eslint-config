@@ -78,10 +78,6 @@
   "peerDependencies": {
     "eslint": "^9.10.0"
   },
-  "publishConfig": {
-    "access": "restricted",
-    "provenance": false
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
