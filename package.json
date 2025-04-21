@@ -8,7 +8,7 @@
     "debug": "eslint --print-config >> debug.json",
     "dev": "tsup --watch",
     "build": "tsup --minify --dts",
-    "ts-check": "tsc --noEmit --project tsconfig.build.json",
+    "ts-check": "tsc --noEmit",
     "prepublishOnly": "pnpm ts-check && pnpm build",
     "prepare": "pnpm build && [ ! -n \"$CI\" ] && husky install || exit 0",
     "commit": "cz"
