@@ -88,6 +88,9 @@
       "@commitlint/config-conventional"
     ]
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "config": {
     "commitizen": {
       "path": "@commitlint/cz-commitlint"
